@@ -1,0 +1,21 @@
+grpc:
+  server:
+    port: 9090
+
+spring:
+  profiles:
+    active: dev
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/happy-chat
+    username: postgres
+    password: 1234
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+  flyway:
+    enabled: false  # Disable Flyway if not using it with R2DBC
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG
+    org.springframework.data.r2dbc: DEBUG

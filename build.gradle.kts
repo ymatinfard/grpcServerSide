@@ -45,26 +45,24 @@ protobuf {
 }
 
 	dependencies {
-		// Core Spring Boot (already included by grpc-server-spring-boot-starter)
 		implementation("org.springframework.boot:spring-boot-starter")
 
-		// Kotlin essentials
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
 		implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
-		// gRPC Core (use versions managed by grpc-server-spring-boot-starter)
-		implementation("io.grpc:grpc-kotlin-stub") // Version managed by starter
-		implementation("io.grpc:grpc-netty-shaded") // Version managed by starter
+		implementation("io.grpc:grpc-netty-shaded")
 
-		// Protobuf
-//		implementation("com.google.protobuf:protobuf-kotlin") // Version managed by Spring Boot
-
-		// Spring Boot gRPC (pick ONE of these)
-		implementation("net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE") // Recommended
-		// implementation("io.github.lognet:grpc-spring-boot-starter:4.7.0") // Remove - conflicting
+		implementation("net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE")
 
 		implementation("io.grpc:grpc-kotlin-stub:1.4.0")
 		implementation("com.google.protobuf:protobuf-kotlin:4.28.2")
+
+		implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+
+		implementation("org.postgresql:r2dbc-postgresql:1.0.4.RELEASE")
+
+		implementation("org.springframework.boot:spring-boot-starter-webflux")
+		implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
 		// Test
 		testImplementation("org.springframework.boot:spring-boot-starter-test")

@@ -4,8 +4,10 @@ option java_package = "com.matin.happychat";
 option java_multiple_files = true;
 
 message ChatMessage {
-  string sender = 1;
-  string message = 2;
+  string senderId = 1;
+  string receiverId = 2;
+  string message = 3;
+  string timeStamp = 4;
 }
 
 message Empty {}
