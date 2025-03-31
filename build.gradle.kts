@@ -21,24 +21,21 @@ repositories {
 
 protobuf {
 	protoc {
-		artifact = "com.google.protobuf:protoc:4.28.2" // Match with protobuf-kotlin version
+		artifact = "com.google.protobuf:protoc:4.28.2"
 	}
 	plugins {
 		create("grpc") {
 			artifact = "io.grpc:protoc-gen-grpc-java:1.57.2"
 		}
-		create("grpckt") { // Plugin for grpc-kotlin
-			artifact = "io.grpc:protoc-gen-grpc-kotlin:1.4.0:jdk8@jar" // Ensure it resolves correctly
+		create("grpckt") {
+			artifact = "io.grpc:protoc-gen-grpc-kotlin:1.4.0:jdk8@jar"
 		}
 	}
 	generateProtoTasks {
 		all().configureEach {
 			plugins {
-				create("grpc")  // Use grpc plugin
-				create("grpckt") // Use grpc-kotlin plugin
-			}
-			builtins {
-				create("kotlin") // Generate Kotlin code
+				create("grpc")
+				create("grpckt")
 			}
 		}
 	}
@@ -49,8 +46,6 @@ protobuf {
 
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
 		implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-
-		implementation("io.grpc:grpc-netty-shaded")
 
 		implementation("net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE")
 

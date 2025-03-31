@@ -10,8 +10,6 @@ message ChatMessage {
   string timeStamp = 4;
 }
 
-message Empty {}
-
 service ChatService {
   rpc ChatStream(stream ChatMessage) returns (stream ChatMessage);
 }
